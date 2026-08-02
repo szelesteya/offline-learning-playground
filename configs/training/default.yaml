@@ -1,0 +1,5 @@
+total_steps: 100000
+eval_every: 5000
+eval_episodes: 10
+
+log_dir: ${hydra:runtime.output_dir}

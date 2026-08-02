@@ -1,0 +1,6 @@
+name: gridworld
+family: simple
+
+observation_dim: 4
+action_dim: 2
+max_episode_steps: 100

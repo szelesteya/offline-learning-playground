@@ -1,0 +1,10 @@
+name: iql
+family: model_free
+algorithm: IQL
+
+hyperparameters:
+  learning_rate: 3e-4
+  batch_size: 256
+  discount: 0.99
+  expectile: 0.7
+  temperature: 3.0

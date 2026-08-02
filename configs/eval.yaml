@@ -1,0 +1,14 @@
+defaults:
+  - agent: model_free/cql
+  - env: simple/gridworld
+  - _self_
+
+experiment_name: ${agent.name}_${env.name}
+
+seed: 0
+eval_episodes: 10
+checkpoint_path: ???
+
+hydra:
+  run:
+    dir: outputs/eval_${experiment_name}/${now:%Y-%m-%d_%H-%M-%S}

@@ -1,0 +1,19 @@
+# Top-level composition: picks one option from each config group below.
+# Override any of these from the command line, e.g.:
+#   uv run python -m olp.cli.train agent=model_based/mopo env=simple/pendulum
+defaults:
+  - agent: model_free/cql
+  - env: simple/gridworld
+  - training: default
+  - _self_
+
+experiment_name: ${agent.name}_${env.name}
+
+seed: 0
+
+hydra:
+  run:
+    dir: outputs/${experiment_name}/${now:%Y-%m-%d_%H-%M-%S}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d_%H-%M-%S}
+    subdir: ${hydra.job.num}_${experiment_name}
