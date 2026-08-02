@@ -1,0 +1,9 @@
+name: cql
+family: model_free
+algorithm: CQL
+
+hyperparameters:
+  learning_rate: 3e-4
+  batch_size: 256
+  discount: 0.99
+  cql_alpha: 5.0

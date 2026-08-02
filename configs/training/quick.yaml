@@ -1,0 +1,6 @@
+# A short run for smoke-testing agent/env combinations, e.g.:
+#   uv run python -m olp.cli.train training=quick
+total_steps: 1000
+eval_every: 200
+eval_episodes: 2
+log_dir: ${hydra:runtime.output_dir}
