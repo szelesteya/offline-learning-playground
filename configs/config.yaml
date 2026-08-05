@@ -1,9 +1,9 @@
 # Top-level composition: picks one option from each config group below.
 # Override any of these from the command line, e.g.:
-#   uv run python -m olp.cli.train agent=model_based/mopo env=simple/pendulum
+#   uv run python -m olp.cli.train agent=model_based/mopo env=minari/pointmaze_umaze
 defaults:
   - agent: model_free/cql
-  - env: simple/gridworld
+  - env: minari/fourrooms
   - training: default
   - _self_
 

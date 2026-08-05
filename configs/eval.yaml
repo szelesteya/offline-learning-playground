@@ -1,6 +1,6 @@
 defaults:
   - agent: model_free/cql
-  - env: simple/gridworld
+  - env: minari/fourrooms
   - _self_
 
 experiment_name: ${agent.name}_${env.name}

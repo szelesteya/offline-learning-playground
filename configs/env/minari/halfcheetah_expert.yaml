@@ -1,0 +1,7 @@
+# requires: uv sync --extra mujoco
+_target_: olp.envs.minari_source.MinariEnvSource
+name: halfcheetah_expert
+dataset_id: mujoco/halfcheetah/expert-v0
+download: true
+ref_min_score: null
+ref_max_score: null
