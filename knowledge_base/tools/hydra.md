@@ -30,10 +30,30 @@ file per group is active in a given run, selected by directory path.
 [`configs/training/`](../../configs/training/) are three independent groups. Switched from the
 command line:
 ```
-uv run python -m olp.cli.train agent=model_based/mopo env=simple/pendulum
+uv run python -m olp.cli.train agent=model_based/mopo env=minari/pointmaze_umaze
 ```
 
 **Docs:** https://hydra.cc/docs/tutorials/basic/your_first_app/config_groups/
+
+## `_target_` + `hydra.utils.instantiate`
+
+A config can name a Python class via `_target_`; `hydra.utils.instantiate(cfg)` imports that
+class and calls it with every other key in the config as keyword arguments. The config
+selects *behavior*, not just data — no hand-written if/elif registry mapping names to
+classes.
+
+**In this repo:** [`configs/env/minari/fourrooms.yaml`](../../configs/env/minari/fourrooms.yaml)
+```yaml
+_target_: olp.envs.minari_source.MinariEnvSource
+name: fourrooms
+dataset_id: D4RL/minigrid/fourrooms-v0
+```
+built in [`cli/env.py`](../../src/olp/cli/env.py) with
+`source = hydra.utils.instantiate(cfg.env)` — every other key becomes a constructor kwarg to
+`MinariEnvSource.__init__`. Adding a second backend is just a new class + a new YAML file,
+nothing in `env.py` changes.
+
+**Docs:** https://hydra.cc/docs/advanced/instantiate_objects/overview/
 
 ## The `defaults` list
 
@@ -45,7 +65,7 @@ keys slot into that merge order.
 ```yaml
 defaults:
   - agent: model_free/cql
-  - env: simple/gridworld
+  - env: minari/fourrooms
   - training: default
   - _self_
 ```
@@ -64,6 +84,22 @@ duplicating them.
 `eval.yaml` skips the `training` group and adds its own `checkpoint_path`/`eval_episodes`.
 
 **Docs:** https://hydra.cc/docs/tutorials/basic/your_first_app/composition/
+
+## Config names and config *group* names are separate namespaces
+
+A top-level config file (`configs/env.yaml`, resolved via `config_name="env"`) and a config
+group directory of the same name (`configs/env/`, resolved via a group reference like
+`env: minari/fourrooms`) do not collide — Hydra checks them with two different predicates
+(`is_config` = "is this a file", `is_group` = "is this a directory") depending on whether it's
+resolving the primary config or a defaults-list entry. Hydra ships its own `hydra/env` group
+(job environment variables) as a working precedent for this exact coexistence.
+
+**In this repo:** [`configs/env.yaml`](../../configs/env.yaml) (the top-level config behind
+`olp env`) sits next to [`configs/env/`](../../configs/env/) (the group `agent`/`env`/`training`
+all pull from). `uv run python -m olp.cli.env --info config` shows both resolving correctly
+in the same defaults tree.
+
+**Docs:** https://hydra.cc/docs/advanced/search_path/
 
 ## Mandatory values (`???`)
 
@@ -128,9 +164,9 @@ list — a built-in grid sweep, no extra looping code.
 
 **In this repo:**
 ```
-uv run python -m olp.cli.train -m agent=model_free/cql,model_based/mopo env=simple/gridworld,simple/pendulum
+uv run python -m olp.cli.train -m agent=model_free/cql,model_based/mopo env=minari/fourrooms,minari/pointmaze_umaze
 ```
-runs all 4 `agent`×`env` combinations.
+runs all 4 `agent`×`env` combinations (`pointmaze_umaze` needs `uv sync --extra mujoco`).
 
 **Docs:** https://hydra.cc/docs/tutorials/basic/running_your_app/multi-run/
 
@@ -151,8 +187,22 @@ hydra:
     dir: multirun/${now:%Y-%m-%d_%H-%M-%S}
     subdir: ${hydra.job.num}_${experiment_name}
 ```
-→ `outputs/cql_gridworld/2026-08-02_13-02-31/.hydra/config.yaml` + `train.log` per run, or
+→ `outputs/cql_fourrooms/2026-08-02_13-02-31/.hydra/config.yaml` + `train.log` per run, or
 `multirun/<timestamp>/<job#>_<experiment_name>/...` under `-m`. Not committed — see
 [`.gitignore`](../../.gitignore).
 
 **Docs:** https://hydra.cc/docs/configure_hydra/intro/
+
+## Read-only commands: opting out of run-directory side effects
+
+`@hydra.main(version_base=None, ...)` defaults `hydra.job.chdir` to `True` (with a deprecation
+warning) — every job changes the process's working directory to its output dir. For a command
+that only inspects things and shouldn't scatter folders on every invocation, three settings
+turn that off: `hydra.job.chdir: false` (don't chdir), `hydra.run.dir: .` (nowhere to chdir to
+even if something tries), `hydra.output_subdir: null` (skip writing `.hydra/config.yaml`).
+
+**In this repo:** [`configs/env.yaml`](../../configs/env.yaml) — `olp env` is read-only and
+leaves the working tree untouched (`git status` stays clean across runs), unlike `train`/`eval`
+which intentionally do want per-run output dirs.
+
+**Docs:** https://hydra.cc/docs/configure_hydra/workdir/

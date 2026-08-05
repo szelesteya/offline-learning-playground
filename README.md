@@ -12,12 +12,12 @@ A research playground for offline reinforcement learning, with a particular focu
 
 ```
 knowledge_base/     Research references as markdown, grouped by topic (structure TBD)
+adrs/                Architecture decision records for this repo's own design choices
 
 src/olp/             Importable package
-  cli/                Single Typer entrypoint (`olp train`, `olp eval`, ...)
+  cli/                Single Typer entrypoint (`olp train`, `olp eval`, `olp env`, ...)
   agents/             Model-free and model-based agent implementations
-  envs/               Simple/custom environments and wrappers
-  benchmarks/         Adapters to standard offline RL benchmarks (D4RL, NeoRL, OGBench, ...)
+  envs/               Environment/dataset sources (Minari, ...) - the offline benchmark interface
   data/               Dataset loading, replay buffers
   training/           Generic trainer, evaluator, callbacks
   models/             Shared neural network building blocks

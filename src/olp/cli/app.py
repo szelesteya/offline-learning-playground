@@ -6,9 +6,10 @@ and that clashes with Typer parsing the same argv first.
 
 Examples
 --------
-    uv run olp train agent=model_based/mopo env=simple/pendulum
+    uv run olp train agent=model_based/mopo env=minari/pointmaze_umaze
     uv run olp train -m agent=model_free/cql,model_based/mopo
     uv run olp eval checkpoint_path=outputs/cql_gridworld/2026-08-02_13-02-31
+    uv run olp env env=minari/halfcheetah_expert
 """
 
 import subprocess
@@ -36,6 +37,12 @@ def train(ctx: typer.Context) -> None:
 def eval(ctx: typer.Context) -> None:
     """Run evaluation."""
     _dispatch("olp.cli.eval", ctx.args)
+
+
+@app.command(context_settings=_PASSTHROUGH)
+def env(ctx: typer.Context) -> None:
+    """Inspect the selected environment and its offline dataset."""
+    _dispatch("olp.cli.env", ctx.args)
 
 
 def main() -> None:

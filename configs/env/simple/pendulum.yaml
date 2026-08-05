@@ -1,6 +1,0 @@
-name: pendulum
-family: simple
-
-observation_dim: 3
-action_dim: 1
-max_episode_steps: 200
