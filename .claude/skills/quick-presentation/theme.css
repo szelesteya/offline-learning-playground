@@ -1,0 +1,157 @@
+/*!
+ * @theme quick-presentation
+ * @author quick-presentation skill
+ * @description Clean, diff-friendly Marp theme with dark code blocks,
+ *              two-column support, and title/section dividers. Avoids the
+ *              upstream `lead` / `invert` classes (buggy in PDF/PPTX export
+ *              as of 2026-04-21) and provides its own `title` / `section`
+ *              classes instead.
+ */
+
+@import "default";
+
+:root {
+  --bg: #ffffff;
+  --fg: #1f2430;
+  --muted: #4a5468;
+  --accent: #1f6feb;
+  --accent-weak: #e8f0fe;
+  --code-bg: #1f2430;
+  --code-fg: #e6e6e6;
+  --rule: #e3e5eb;
+}
+
+section {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-size: 26px;
+  line-height: 1.45;
+  padding: 56px 72px;
+}
+
+section h1,
+section h2,
+section h3 {
+  color: var(--fg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+section h1 {
+  font-size: 44px;
+  margin-bottom: 0.3em;
+}
+
+section h2 {
+  font-size: 34px;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.2em;
+  margin-bottom: 0.6em;
+}
+
+section h3 {
+  font-size: 26px;
+  color: var(--muted);
+}
+
+section p,
+section li {
+  font-size: 24px;
+}
+
+section strong {
+  color: var(--accent);
+}
+
+section em {
+  color: var(--muted);
+  font-style: italic;
+}
+
+section blockquote {
+  border-left: 4px solid var(--accent);
+  background: var(--accent-weak);
+  padding: 0.6em 1em;
+  margin: 0.8em 0;
+  color: var(--fg);
+}
+
+section code {
+  font-family: "JetBrains Mono", "Fira Code", Menlo, monospace;
+  background: var(--accent-weak);
+  color: var(--fg);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+section pre {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  border-radius: 8px;
+  padding: 1em 1.2em;
+  font-size: 20px;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+section pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* Two-column layout: wrap columns in <div class="columns"><div>...</div><div>...</div></div> */
+section .columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  align-items: start;
+}
+
+/* Title slide: <!-- _class: title --> */
+section.title {
+  text-align: center;
+  background: linear-gradient(180deg, var(--accent-weak) 0%, var(--bg) 100%);
+}
+
+section.title h1 {
+  font-size: 54px;
+  margin-top: 1em;
+}
+
+section.title h2 {
+  border: none;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* Section divider: <!-- _class: section --> */
+section.section {
+  background: var(--fg);
+  color: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.section h1 {
+  color: var(--bg);
+  font-size: 48px;
+  text-align: center;
+}
+
+/* Pagination */
+section::after {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+/* Images */
+section img {
+  max-width: 100%;
+  max-height: 60vh;
+  display: block;
+  margin: 0.5em auto;
+}
