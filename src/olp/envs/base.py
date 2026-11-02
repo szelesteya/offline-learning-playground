@@ -1,7 +1,7 @@
 """Environment/dataset source interface.
 
 In offline RL the environment is never stepped during training - only for dataset
-provenance and evaluation rollouts (see adrs/0001-env-is-eval-only.md). `spec()` reflects
+provenance and evaluation rollouts (see docs/adrs/0001-env-is-eval-only.md). `spec()` reflects
 that: it reads dataset metadata only and never constructs an environment, so inspection
 still works even if the simulator backing `make_eval_env()` isn't installed.
 """

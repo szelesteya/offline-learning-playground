@@ -8,7 +8,7 @@ wrap Hydra's own argv parsing (see below), it just routes to a subprocess per su
 `typer.Typer()` creates an app; each `@app.command()`-decorated function becomes a subcommand
 named after the function.
 
-**In this repo:** [`src/olp/cli/app.py`](../../src/olp/cli/app.py)
+**In this repo:** [`src/olp/cli/app.py`](../../../src/olp/cli/app.py)
 ```python
 app = typer.Typer(add_completion=False, no_args_is_help=True)
 
@@ -27,7 +27,7 @@ arguments are collected verbatim in `ctx.args` instead of erroring — necessary
 Hydra's `key=value` overrides and `-m` flag aren't things Typer/Click understand, and Hydra
 needs to see them unmodified.
 
-**In this repo:** [`src/olp/cli/app.py:22-30`](../../src/olp/cli/app.py#L22-L30)
+**In this repo:** [`src/olp/cli/app.py:22-30`](../../../src/olp/cli/app.py#L22-L30)
 ```python
 _PASSTHROUGH = {"allow_extra_args": True, "ignore_unknown_options": True}
 
@@ -45,7 +45,7 @@ So `olp train agent=model_based/mopo` forwards `["agent=model_based/mopo"]` stra
 `uv sync`/`pip install`. Not a Typer feature itself (any callable works), but it's what makes
 `olp` an actual command instead of `python -m olp.cli.app`.
 
-**In this repo:** [`pyproject.toml`](../../pyproject.toml)
+**In this repo:** [`pyproject.toml`](../../../pyproject.toml)
 ```toml
 [project.scripts]
 olp = "olp.cli.app:main"

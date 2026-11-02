@@ -1,0 +1,72 @@
+site_name: "Offline Learning Playground"
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - toc.follow
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+
+extra_css:
+  - stylesheets/study-guide.css
+
+extra_javascript:
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+  - search
+  - awesome-pages
+  - mkdocs-jupyter
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.arithmatex:
+      generic: true
+  - toc:
+      permalink: true
+  - pymdownx.snippets:
+      base_path: "."
+
+validation:
+  links:
+    not_found: ignore
+
+# >>> auto-nav (managed by documentation-setup-mkdocs:update_nav.py) >>>
+nav:
+  - Home: index.md
+  - ADRs:
+    - Overview: adrs/index.md
+    - 1. The environment is used for dataset provenance and evaluation only: adrs/0001-env-is-eval-only.md
+  - Knowledge Base:
+    - Overview: knowledge_base/index.md
+    - Research:
+      - Overview: knowledge_base/research/index.md
+      - Bcq Fujimoto Et Al 2018:
+        - Off-Policy Deep Reinforcement Learning without Exploration: knowledge_base/research/bcq_fujimoto_et_al_2018/notes.md
+      - Offline Rl Survey Prudencio Et Al 2024:
+        - A Survey on Offline Reinforcement Learning: knowledge_base/research/offline_rl_survey_prudencio_et_al_2024/slides.md
+      - Research Reading Backlog: knowledge_base/research/reading_backlog.md
+      - Revisiting Design Choices Lu 2022:
+        - Revisiting Design Choices in Offline Model-Based Reinforcement Learning: knowledge_base/research/revisiting_design_choices_lu_2022/slides.md
+    - Tools:
+      - Overview: knowledge_base/tools/index.md
+      - Hydra: knowledge_base/tools/hydra.md
+      - Minari: knowledge_base/tools/minari.md
+      - Typer: knowledge_base/tools/typer.md
+# <<< auto-nav <<<

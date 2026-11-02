@@ -1,0 +1,928 @@
+/* Study Guide Custom Theme for MkDocs Material */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --border: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-soft: #eef2ff;
+
+  /* 🔵 Examples (NOTE) */
+  --note-bg: #eff6ff;
+  --note-border: #2563eb;
+  --note-header: #1d4ed8;
+  --note-badge-bg: #dbeafe;
+
+  /* 🟢 Code (TIP) */
+  --tip-bg: #ecfdf5;
+  --tip-border: #059669;
+  --tip-header: #047857;
+  --tip-badge-bg: #d1fae5;
+
+  /* 🟠 Exercises (WARNING) */
+  --warn-bg: #fffbeb;
+  --warn-border: #d97706;
+  --warn-header: #b45309;
+  --warn-badge-bg: #fef3c7;
+
+  /* 🟣 Important / Caution / Motivation */
+  --imp-bg: #faf5ff;
+  --imp-border: #7c3aed;
+  --imp-header: #6d28d9;
+
+  --code-bg: #0f172a;
+  --code-text: #f8fafc;
+  --output-bg: #1e293b;
+  --output-border: #334155;
+}
+
+/* Main Content Area & Card Wrapper */
+.md-main {
+  background: var(--bg);
+}
+
+.md-content__inner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2.5rem 3rem !important;
+  margin-top: 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+/* Headings */
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4 {
+  color: var(--text);
+  line-height: 1.3;
+  scroll-margin-top: 4rem;
+}
+
+.md-typeset h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 3px solid var(--accent);
+  color: #1e1b4b;
+}
+
+.md-typeset h2 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 2.5rem 0 0.85rem;
+  padding: 0.45rem 0.85rem;
+  background: linear-gradient(90deg, var(--accent-soft) 0%, transparent 100%);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.md-typeset h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 1.6rem 0 0.6rem;
+  color: #334155;
+}
+
+.md-typeset h4 {
+  font-size: 1.02rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.45rem;
+  color: #1e293b;
+}
+
+.md-typeset hr {
+  border: none;
+  border-top: 2px dashed var(--border);
+  margin: 2.5rem 0;
+}
+
+/* Inline code & pre blocks */
+.md-typeset code {
+  font-family: "JetBrains Mono", "Fira Code", "SFMono-Regular", Consolas, Menlo, monospace;
+  font-size: 0.86em;
+  background: #f1f5f9;
+  color: #be123c;
+  padding: 0.15em 0.4em;
+  border-radius: 5px;
+}
+
+.md-typeset pre > code,
+.md-typeset .highlight {
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 1.1rem 1.25rem;
+  border-radius: 10px;
+  line-height: 1.5;
+  --md-code-fg-color: #f8fafc;
+  --md-code-bg-color: var(--code-bg);
+  --md-code-hl-name-color: #e2e8f0;
+  --md-code-hl-operator-color: #38bdf8;
+  --md-code-hl-punctuation-color: #cbd5e1;
+  --md-code-hl-comment-color: #94a3b8;
+  --md-code-hl-keyword-color: #f472b6;
+  --md-code-hl-function-color: #c084fc;
+  --md-code-hl-string-color: #4ade80;
+  --md-code-hl-number-color: #fbbf24;
+  --md-code-hl-constant-color: #60a5fa;
+  --md-code-hl-special-color: #fb7185;
+  --md-code-hl-variable-color: #e2e8f0;
+  --md-code-hl-generic-color: #e2e8f0;
+}
+
+.md-clipboard {
+  color: #94a3b8;
+}
+
+.md-clipboard:hover {
+  color: #f8fafc;
+}
+
+/* Execution Output Block */
+.code-output-label {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #065f46;
+  margin: 0.65rem 0 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.md-typeset pre.code-output > code,
+.md-typeset .code-output pre > code {
+  background: var(--output-bg) !important;
+  color: #a7f3d0 !important;
+  border-left: 4px solid #10b981;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.83rem;
+}
+
+/* Colorful Study Guide Callout Blocks (Both MkDocs Admonitions & Raw .callout HTML) */
+.md-typeset .admonition,
+.md-typeset details.admonition,
+.md-typeset .callout {
+  border-radius: 12px;
+  padding: 0 1.25rem 1rem;
+  margin: 1.35rem 0;
+  border: 1px solid var(--border);
+  border-left-width: 6px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.md-typeset .callout {
+  padding: 1.15rem 1.4rem;
+}
+
+.md-typeset .admonition-title,
+.md-typeset .callout-header {
+  font-weight: 700;
+  font-size: 1.02rem;
+  margin-bottom: 0.65rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: transparent !important;
+}
+
+.md-typeset .admonition-title {
+  margin: 0 -1.25rem 0.75rem -1.25rem !important;
+  padding: 0.75rem 1.25rem 0.5rem 2.6rem !important;
+}
+
+/* 🔵 NOTE -> Toy & Real-World Examples */
+.md-typeset .admonition.note,
+.md-typeset details.note,
+.md-typeset .callout-note {
+  background: var(--note-bg);
+  border-color: #bfdbfe;
+  border-left-color: var(--note-border);
+}
+.md-typeset .note > .admonition-title,
+.md-typeset .callout-note .callout-header {
+  color: var(--note-header);
+}
+
+/* 🟢 TIP -> Code Implementation */
+.md-typeset .admonition.tip,
+.md-typeset details.tip,
+.md-typeset .callout-tip {
+  background: var(--tip-bg);
+  border-color: #a7f3d0;
+  border-left-color: var(--tip-border);
+}
+.md-typeset .tip > .admonition-title,
+.md-typeset .callout-tip .callout-header {
+  color: var(--tip-header);
+}
+
+/* 🟠 WARNING -> Exercises */
+.md-typeset .admonition.warning,
+.md-typeset details.warning,
+.md-typeset .callout-warning {
+  background: var(--warn-bg);
+  border-color: #fde68a;
+  border-left-color: var(--warn-border);
+}
+.md-typeset .warning > .admonition-title,
+.md-typeset .callout-warning .callout-header {
+  color: var(--warn-header);
+}
+
+/* 🟣 IMPORTANT / CAUTION / DANGER -> Motivation & Exam Traps */
+.md-typeset .admonition.important,
+.md-typeset .admonition.danger,
+.md-typeset .admonition.caution,
+.md-typeset .callout-important,
+.md-typeset .callout-caution {
+  background: var(--imp-bg);
+  border-color: #ddd6fe;
+  border-left-color: var(--imp-border);
+}
+.md-typeset .important > .admonition-title,
+.md-typeset .danger > .admonition-title,
+.md-typeset .caution > .admonition-title,
+.md-typeset .callout-important .callout-header,
+.md-typeset .callout-caution .callout-header {
+  color: var(--imp-header);
+}
+
+/* Exercise Source Badges */
+.badge {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 0.16rem 0.55rem;
+  border-radius: 999px;
+  margin-right: 0.35rem;
+  vertical-align: middle;
+}
+
+.badge-exam {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.badge-workshop {
+  background: #e0e7ff;
+  color: #1e40af;
+  border: 1px solid #a5b4fc;
+}
+
+.badge-madeup {
+  background: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #d8b4fe;
+}
+
+/* Collapsible Answer Accordions (<details>) */
+.md-typeset details:not(.admonition) {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(217, 119, 6, 0.35);
+  border-radius: 8px;
+  padding: 0.55rem 0.95rem;
+  margin: 0.65rem 0 1.1rem;
+  transition: all 0.2s ease;
+}
+
+.md-typeset details:not(.admonition)[open] {
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding-bottom: 0.85rem;
+}
+
+.md-typeset details:not(.admonition) > summary {
+  font-weight: 700;
+  color: var(--warn-header);
+  cursor: pointer;
+  user-select: none;
+  padding: 0.15rem 0;
+}
+
+.md-typeset details:not(.admonition) > summary:hover {
+  color: #92400e;
+}
+
+/* Tables */
+.md-typeset table:not([class]) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.md-typeset table:not([class]) th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+@media (max-width: 960px) {
+  .md-content__inner {
+    padding: 1.25rem !important;
+  }
+}
+
+/* Math & Wide Equation Overflow Safety (lifted from resources/style.css) */
+.md-typeset div.arithmatex,
+.md-typeset .MathJax_Display,
+.md-typeset .katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.35rem 0;
+}
+
+/* Responsive Table Wrapper */
+.md-typeset .md-typeset__table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* ==========================================================================
+   Zen Mode (Hide Left Navigation & Right TOC Panels) & Floating Toggle Button
+   ========================================================================== */
+body.zen-mode .md-sidebar--primary,
+body.zen-mode .md-sidebar--secondary {
+  display: none !important;
+}
+
+body.zen-mode .md-content {
+  max-width: 100% !important;
+  margin: 0 auto !important;
+}
+
+body.zen-mode .md-content__inner {
+  max-width: 980px !important;
+  margin: 0 auto !important;
+}
+
+.zen-mode-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 999;
+  background: #4f46e5;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease-in-out;
+  backdrop-filter: blur(8px);
+}
+
+.zen-mode-toggle:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+}
+
+.zen-mode-toggle svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ==========================================================================
+   Bottom-Left Formula Cheatsheet Button & High-Density Modal Overlay
+   ========================================================================== */
+.formula-cheatsheet-toggle {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 999;
+  background: #4f46e5;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9999px;
+  padding: 8px 18px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  transition: all 0.2s ease-in-out;
+  backdrop-filter: blur(8px);
+}
+
+.formula-cheatsheet-toggle:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 70, 229, 0.5);
+}
+
+.formula-sigma-icon {
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+body.formula-modal-open {
+  overflow: hidden;
+}
+
+.formula-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(6px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.formula-overlay-backdrop.is-open {
+  display: flex;
+}
+
+.formula-overlay-modal {
+  background: #f8fafc;
+  color: #0f172a;
+  width: 96vw;
+  max-width: 1520px;
+  height: 91vh;
+  border-radius: 16px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.formula-overlay-header {
+  background: #ffffff;
+  color: #0f172a;
+  padding: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 2px solid #e2e8f0;
+  flex-shrink: 0;
+}
+
+.formula-overlay-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.formula-overlay-badge {
+  background: #eef2ff;
+  color: #4f46e5;
+  border: 1px solid #c7d2fe;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.formula-overlay-header h2 {
+  margin: 0;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #1e1b4b;
+  line-height: 1.2;
+}
+
+.formula-overlay-subtitle {
+  margin: 2px 0 0;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.formula-overlay-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.formula-topic-pills {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.formula-pill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #334155 !important;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  padding: 4px 9px;
+  border-radius: 999px;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.formula-pill span {
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.formula-pill:hover {
+  background: #4f46e5;
+  color: #ffffff !important;
+  border-color: #4f46e5;
+}
+
+.formula-pill:hover span {
+  color: #e0e7ff;
+}
+
+.formula-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.formula-search-input {
+  background: #f8fafc;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 5px 11px;
+  font-size: 0.75rem;
+  width: 240px;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+.formula-search-input:focus {
+  background: #ffffff;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+}
+
+.formula-overlay-close {
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.formula-overlay-close:hover {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.formula-overlay-body {
+  padding: 16px 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
+}
+
+.cheatsheet-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.cheatsheet-topic-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+  scroll-margin-top: 10px;
+  width: 100%;
+}
+
+.cheatsheet-topic-header {
+  background: linear-gradient(90deg, #eef2ff 0%, #f8fafc 100%);
+  color: #1e1b4b;
+  font-size: 0.84rem;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-bottom: 1px solid #e0e7ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cs-topic-num {
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+}
+
+.cheatsheet-card-content {
+  padding: 12px 16px;
+}
+
+.cs-kv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.cs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  align-items: baseline;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border-bottom: 1px dashed #f1f5f9;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cs-row:last-child {
+  border-bottom: none;
+}
+
+.cs-row:hover {
+  background: #f8fafc;
+}
+
+.cs-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+  width: 210px;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .cs-label {
+    width: 100%;
+  }
+}
+
+.cs-eqs {
+  flex: 1 1 320px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 18px;
+  min-width: 0;
+}
+
+.cs-eq {
+  font-size: 0.82rem;
+  color: #0f172a;
+  display: inline-flex;
+  align-items: baseline;
+  line-height: 1.5;
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 100%;
+}
+
+.cs-note {
+  font-size: 0.72rem;
+  color: #475569;
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 2px 8px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.cs-subtable-wrap {
+  margin-top: 6px;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.cs-matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.73rem;
+  line-height: 1.35;
+}
+
+.cs-matrix-table th {
+  background: #f1f5f9;
+  color: #1e293b;
+  font-weight: 700;
+  text-align: left;
+  padding: 5px 8px;
+  border-bottom: 1px solid #cbd5e1;
+  white-space: nowrap;
+}
+
+.cs-matrix-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #0f172a;
+  vertical-align: middle;
+}
+
+.cs-matrix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.cs-matrix-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.cs-muted {
+  font-size: 0.66rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.cs-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  background: #eef2ff;
+  color: #4338ca;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-left: 3px;
+}
+
+.cs-yes {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+.cs-no {
+  display: inline-block;
+  font-size: 0.66rem;
+  font-weight: 700;
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 1px 6px;
+  border-radius: 999px;
+}
+
+.formula-overlay-modal code {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 0.84em;
+  background: #f1f5f9;
+  color: #be123c;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* Modern Visual Styling for Mermaid Diagrams */
+.mermaid,
+.md-typeset .mermaid {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 1.75rem 0 !important;
+  background: transparent !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.mermaid .cluster rect,
+.md-typeset .mermaid .cluster rect {
+  fill: #f8fafc !important;
+  stroke: #cbd5e1 !important;
+  stroke-width: 1.5px !important;
+  stroke-dasharray: 4 4 !important;
+  rx: 12px !important;
+  ry: 12px !important;
+}
+
+.mermaid .cluster .cluster-label span,
+.mermaid .cluster-label text,
+.mermaid .cluster span.nodeLabel {
+  font-weight: 700 !important;
+  color: #1e1b4b !important;
+  fill: #1e1b4b !important;
+  font-size: 0.88rem !important;
+}
+
+.mermaid .node rect,
+.mermaid .node polygon,
+.mermaid .node circle,
+.md-typeset .mermaid .node rect,
+.md-typeset .mermaid .node polygon,
+.md-typeset .mermaid .node circle {
+  fill: #ffffff !important;
+  stroke: #4f46e5 !important;
+  stroke-width: 1.5px !important;
+  rx: 8px !important;
+  ry: 8px !important;
+  filter: drop-shadow(0 2px 5px rgba(15, 23, 42, 0.07));
+}
+
+.mermaid .node .label,
+.mermaid .node span.nodeLabel {
+  color: #0f172a !important;
+  fill: #0f172a !important;
+  font-weight: 500 !important;
+  font-size: 0.84rem !important;
+  line-height: 1.4 !important;
+}
+
+.mermaid .node span.nodeLabel strong,
+.mermaid .node span.nodeLabel b {
+  font-weight: 700 !important;
+  color: #1e1b4b !important;
+}
+
+.mermaid .node span.nodeLabel em,
+.mermaid .node span.nodeLabel i {
+  font-style: italic !important;
+}
+
+.mermaid .node span.nodeLabel mjx-container {
+  font-size: 102% !important;
+  margin: 0 0.12em !important;
+  vertical-align: middle !important;
+}
+
+.mermaid .edgePath path,
+.mermaid .edgePath .path,
+.mermaid .flowchart-link,
+.md-typeset .mermaid .edgePath path,
+.md-typeset .mermaid .flowchart-link {
+  stroke: #6366f1 !important;
+  stroke-width: 2px !important;
+}
+
+.mermaid .marker,
+.mermaid marker path,
+.mermaid .arrowheadPath,
+.md-typeset .mermaid marker path {
+  fill: #6366f1 !important;
+  stroke: #6366f1 !important;
+}
+
+.mermaid .edgeLabel,
+.mermaid .edgeLabel rect,
+.md-typeset .mermaid .edgeLabel {
+  background-color: #ffffff !important;
+  fill: #ffffff !important;
+  color: #475569 !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+}
+
+.mermaid foreignObject {
+  overflow: visible !important;
+}
+
+.mermaid foreignObject div {
+  overflow: visible !important;
+}
+

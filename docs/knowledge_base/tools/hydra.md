@@ -9,14 +9,14 @@ Decorator that turns a function into a config-driven entrypoint: it loads and co
 config *before* calling the function, and injects the result as the function's single
 argument.
 
-**In this repo:** [`src/olp/cli/train.py:33`](../../src/olp/cli/train.py#L33)
+**In this repo:** [`src/olp/cli/train.py:33`](../../../src/olp/cli/train.py#L33)
 ```python
 @hydra.main(version_base=None, config_path="../../../configs", config_name="config")
 def main(cfg: DictConfig) -> None:
 ```
 `config_path` is resolved relative to the file the decorator is in (not the cwd), and
 `config_name` is the top-level file to start composing from
-([`configs/config.yaml`](../../configs/config.yaml)).
+([`configs/config.yaml`](../../../configs/config.yaml)).
 
 **Docs:** https://hydra.cc/docs/tutorials/basic/your_first_app/simple_cli/
 
@@ -26,8 +26,8 @@ A directory of interchangeable YAML files (e.g. `agent/model_free/cql.yaml` vs.
 `agent/model_based/mopo.yaml`) that all fill the same slot in the composed config. Only one
 file per group is active in a given run, selected by directory path.
 
-**In this repo:** [`configs/agent/`](../../configs/agent/), [`configs/env/`](../../configs/env/),
-[`configs/training/`](../../configs/training/) are three independent groups. Switched from the
+**In this repo:** [`configs/agent/`](../../../configs/agent/), [`configs/env/`](../../../configs/env/),
+[`configs/training/`](../../../configs/training/) are three independent groups. Switched from the
 command line:
 ```
 uv run python -m olp.cli.train agent=model_based/mopo env=minari/pointmaze_umaze
@@ -42,13 +42,13 @@ class and calls it with every other key in the config as keyword arguments. The 
 selects *behavior*, not just data — no hand-written if/elif registry mapping names to
 classes.
 
-**In this repo:** [`configs/env/minari/fourrooms.yaml`](../../configs/env/minari/fourrooms.yaml)
+**In this repo:** [`configs/env/minari/fourrooms.yaml`](../../../configs/env/minari/fourrooms.yaml)
 ```yaml
 _target_: olp.envs.minari_source.MinariEnvSource
 name: fourrooms
 dataset_id: D4RL/minigrid/fourrooms-v0
 ```
-built in [`cli/env.py`](../../src/olp/cli/env.py) with
+built in [`cli/env.py`](../../../src/olp/cli/env.py) with
 `source = hydra.utils.instantiate(cfg.env)` — every other key becomes a constructor kwarg to
 `MinariEnvSource.__init__`. Adding a second backend is just a new class + a new YAML file,
 nothing in `env.py` changes.
@@ -61,7 +61,7 @@ Declares which option from each config group is active by default, and in what o
 merged (later entries override earlier ones). `_self_` controls where the current file's own
 keys slot into that merge order.
 
-**In this repo:** [`configs/config.yaml`](../../configs/config.yaml)
+**In this repo:** [`configs/config.yaml`](../../../configs/config.yaml)
 ```yaml
 defaults:
   - agent: model_free/cql
@@ -78,9 +78,9 @@ defaults:
 can reuse the same config groups (`agent/`, `env/`) in different combinations without
 duplicating them.
 
-**In this repo:** [`configs/config.yaml`](../../configs/config.yaml) (used by
-[`train.py`](../../src/olp/cli/train.py)) and [`configs/eval.yaml`](../../configs/eval.yaml)
-(used by [`eval.py`](../../src/olp/cli/eval.py)) both pull from `agent/` and `env/`, but
+**In this repo:** [`configs/config.yaml`](../../../configs/config.yaml) (used by
+[`train.py`](../../../src/olp/cli/train.py)) and [`configs/eval.yaml`](../../../configs/eval.yaml)
+(used by [`eval.py`](../../../src/olp/cli/eval.py)) both pull from `agent/` and `env/`, but
 `eval.yaml` skips the `training` group and adds its own `checkpoint_path`/`eval_episodes`.
 
 **Docs:** https://hydra.cc/docs/tutorials/basic/your_first_app/composition/
@@ -94,8 +94,8 @@ group directory of the same name (`configs/env/`, resolved via a group reference
 resolving the primary config or a defaults-list entry. Hydra ships its own `hydra/env` group
 (job environment variables) as a working precedent for this exact coexistence.
 
-**In this repo:** [`configs/env.yaml`](../../configs/env.yaml) (the top-level config behind
-`olp env`) sits next to [`configs/env/`](../../configs/env/) (the group `agent`/`env`/`training`
+**In this repo:** [`configs/env.yaml`](../../../configs/env.yaml) (the top-level config behind
+`olp env`) sits next to [`configs/env/`](../../../configs/env/) (the group `agent`/`env`/`training`
 all pull from). `uv run python -m olp.cli.env --info config` shows both resolving correctly
 in the same defaults tree.
 
@@ -107,8 +107,8 @@ A field set to `???` has no default — reading it raises `MissingMandatoryValue
 command-line override supplies one. Fails loudly instead of silently running with a bogus
 default.
 
-**In this repo:** [`configs/eval.yaml`](../../configs/eval.yaml) `checkpoint_path: ???`, enforced
-in [`eval.py:20`](../../src/olp/cli/eval.py#L20) (`_ = cfg.checkpoint_path`):
+**In this repo:** [`configs/eval.yaml`](../../../configs/eval.yaml) `checkpoint_path: ???`, enforced
+in [`eval.py:20`](../../../src/olp/cli/eval.py#L20) (`_ = cfg.checkpoint_path`):
 ```
 uv run olp eval                                    # -> MissingMandatoryValue
 uv run olp eval checkpoint_path=outputs/cql_gridworld/2026-08-02_13-02-31   # -> OK
@@ -121,7 +121,7 @@ uv run olp eval checkpoint_path=outputs/cql_gridworld/2026-08-02_13-02-31   # ->
 `${...}` references another value in the composed config tree, resolved at read time — lets
 one group's config depend on another's without hardcoding.
 
-**In this repo:** [`configs/config.yaml`](../../configs/config.yaml) builds an experiment name
+**In this repo:** [`configs/config.yaml`](../../../configs/config.yaml) builds an experiment name
 from the active agent and env (`experiment_name: ${agent.name}_${env.name}`) — a group
 referencing a value defined outside itself.
 
@@ -136,7 +136,7 @@ Hydra's actual behavior from silently drifting apart (see history: an earlier ve
 `training.log_dir` built its own `outputs/${experiment_name}` path independently of
 `hydra.run.dir` below, so the two disagreed about where files actually landed).
 
-**In this repo:** [`configs/training/default.yaml`](../../configs/training/default.yaml)
+**In this repo:** [`configs/training/default.yaml`](../../../configs/training/default.yaml)
 ```yaml
 log_dir: ${hydra:runtime.output_dir}
 ```
@@ -177,7 +177,7 @@ Hydra changes the working directory for each run to a fresh folder (pattern conf
 config value) and dumps the fully-resolved config + logs there, so every run is reproducible
 from its own output dir alone.
 
-**In this repo:** [`configs/config.yaml`](../../configs/config.yaml) keys the pattern off our
+**In this repo:** [`configs/config.yaml`](../../../configs/config.yaml) keys the pattern off our
 own `experiment_name` instead of Hydra's date/time-only default, so runs are easy to find:
 ```yaml
 hydra:
@@ -189,7 +189,7 @@ hydra:
 ```
 → `outputs/cql_fourrooms/2026-08-02_13-02-31/.hydra/config.yaml` + `train.log` per run, or
 `multirun/<timestamp>/<job#>_<experiment_name>/...` under `-m`. Not committed — see
-[`.gitignore`](../../.gitignore).
+[`.gitignore`](../../../.gitignore).
 
 **Docs:** https://hydra.cc/docs/configure_hydra/intro/
 
@@ -201,7 +201,7 @@ that only inspects things and shouldn't scatter folders on every invocation, thr
 turn that off: `hydra.job.chdir: false` (don't chdir), `hydra.run.dir: .` (nowhere to chdir to
 even if something tries), `hydra.output_subdir: null` (skip writing `.hydra/config.yaml`).
 
-**In this repo:** [`configs/env.yaml`](../../configs/env.yaml) — `olp env` is read-only and
+**In this repo:** [`configs/env.yaml`](../../../configs/env.yaml) — `olp env` is read-only and
 leaves the working tree untouched (`git status` stays clean across runs), unlike `train`/`eval`
 which intentionally do want per-run output dirs.
 

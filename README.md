@@ -11,8 +11,9 @@ A research playground for offline reinforcement learning, with a particular focu
 ## Repository structure
 
 ```
-knowledge_base/     Research references as markdown, grouped by topic (structure TBD)
-adrs/                Architecture decision records for this repo's own design choices
+docs/                MkDocs documentation
+  adrs/              Architecture decision records for this repo's own design choices
+  knowledge_base/    Research references, reading notes, and tool deep-dives
 
 src/olp/             Importable package
   cli/                Single Typer entrypoint (`olp train`, `olp eval`, `olp env`, ...)
@@ -48,3 +49,14 @@ uv run olp --help
 ## Status
 
 Early scaffolding — knowledge base and code structure are being built out.
+
+## Documentation
+
+This repository includes an interactive MkDocs documentation site under `docs/`:
+
+- **ADRs**: Architecture decision records under `docs/adrs/`.
+- **Knowledge Base**: Research papers, notes, and tool deep-dives under `docs/knowledge_base/`.
+
+- Live preview: uv run mkdocs serve
+- Static build: uv run mkdocs build
+- Regenerate navigation after adding files or folders: uv run python scripts/update_nav.py

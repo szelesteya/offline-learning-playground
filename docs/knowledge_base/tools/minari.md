@@ -14,7 +14,7 @@ locomotion tasks (`mujoco/halfcheetah/expert-v0`); `minigrid/*` covers the BabyA
 before hardcoding one (`minigrid/fourrooms-v0` looked plausible but doesn't exist; the real
 id is `D4RL/minigrid/fourrooms-v0`).
 
-**In this repo:** [`configs/env/minari/`](../../configs/env/minari/) — one YAML per dataset,
+**In this repo:** [`configs/env/minari/`](../../../configs/env/minari/) — one YAML per dataset,
 each carrying a verified `dataset_id`.
 
 **Docs:** https://minari.farama.org/main/content/dataset_standards/
@@ -27,9 +27,9 @@ without it, a missing dataset raises `FileNotFoundError`. Downloading needs the 
 `Pillow` for image observations — neither of the latter two is pulled in automatically by
 any Minari extra, they're just assumed present.
 
-**In this repo:** [`pyproject.toml`](../../pyproject.toml) `minari[hf,hdf5]` + explicit
+**In this repo:** [`pyproject.toml`](../../../pyproject.toml) `minari[hf,hdf5]` + explicit
 `pillow` dependency; wrapped in
-[`minari_source.py:32-49`](../../src/olp/envs/minari_source.py#L32-L49)
+[`minari_source.py:32-49`](../../../src/olp/envs/minari_source.py#L32-L49)
 (`MinariEnvSource.load_dataset`), which turns `FileNotFoundError` into a message naming the
 exact `minari download` command instead of a raw traceback.
 
@@ -46,7 +46,7 @@ message. It only fails when the underlying `gym.make()` needs a package that isn
 (e.g. a MuJoCo task without `mujoco` installed).
 
 **In this repo:**
-[`minari_source.py:65-80`](../../src/olp/envs/minari_source.py#L65-L80)
+[`minari_source.py:65-80`](../../../src/olp/envs/minari_source.py#L65-L80)
 (`MinariEnvSource.make_eval_env`) catches that failure and points at
 `uv sync --extra mujoco`.
 
@@ -59,7 +59,7 @@ terminations, truncations, infos)`. `observations` has **one more entry than `ac
 per episode — it includes the initial reset observation and the final one, while `actions`
 has exactly one entry per transition taken.
 
-**In this repo:** [`cli/env.py`](../../src/olp/cli/env.py) prints `actions=N` next to each
+**In this repo:** [`cli/env.py`](../../../src/olp/cli/env.py) prints `actions=N` next to each
 key's observation count (`N+1`) for every sampled episode, to make the convention visible
 rather than asserted.
 
@@ -71,7 +71,7 @@ rather than asserted.
 episode ids across runs); `iterate_episodes(episode_indices=...)` walks a specific, ordered
 subset instead of a random sample.
 
-**In this repo:** [`cli/env.py`](../../src/olp/cli/env.py) — `dataset.set_seed(cfg.seed)`
+**In this repo:** [`cli/env.py`](../../../src/olp/cli/env.py) — `dataset.set_seed(cfg.seed)`
 then `dataset.sample_episodes(cfg.sample_episodes)`.
 
 **Docs:** https://minari.farama.org/main/content/basic_usage/
@@ -84,7 +84,7 @@ collection time. Custom `gymnasium.Space` subclasses don't round-trip: MiniGrid'
 so `dataset.observation_space != env.observation_space` even though nothing is actually
 wrong. Worth checking, not worth trusting blindly.
 
-**In this repo:** [`cli/env.py`](../../src/olp/cli/env.py) `_describe_space_match()` reports
+**In this repo:** [`cli/env.py`](../../../src/olp/cli/env.py) `_describe_space_match()` reports
 per-key differences on `Dict` spaces instead of a bare `!=`, and names the serialization
 caveat directly. Observed live on `D4RL/minigrid/fourrooms-v0`.
 
@@ -96,7 +96,7 @@ caveat directly. Observed live on `D4RL/minigrid/fourrooms-v0`.
 datasets; `minari download <id>` fetches one without going through Python.
 
 **In this repo:** the error messages in
-[`minari_source.py`](../../src/olp/envs/minari_source.py) name these commands directly so a
+[`minari_source.py`](../../../src/olp/envs/minari_source.py) name these commands directly so a
 failure is immediately actionable from the terminal.
 
 **Docs:** https://minari.farama.org/main/content/basic_usage/#minari-cli

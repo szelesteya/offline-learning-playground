@@ -11,3 +11,13 @@ multirun/
 
 # MacOS files
 .DS_Store
+
+# Agent files
+CLAUDE.md
+AGENTS.md
+
+# MkDocs build directory
+site/
+
+# MkDocs build directory
+site/

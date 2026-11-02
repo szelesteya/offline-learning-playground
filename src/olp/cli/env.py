@@ -2,7 +2,7 @@
 
 Read-only: loads the dataset (downloading it on first use), reports its metadata, recovers
 the evaluation environment, and samples a few episodes. No training/eval pipeline - see
-adrs/0001-env-is-eval-only.md for why the environment is only ever used this way.
+docs/adrs/0001-env-is-eval-only.md for why the environment is only ever used this way.
 
 Examples
 --------

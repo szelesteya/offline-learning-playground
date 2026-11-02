@@ -27,3 +27,12 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/olp"]
+
+[dependency-groups]
+docs = [
+    "mkdocs-awesome-pages-plugin>=2.10.1",
+    "mkdocs-jupyter>=0.27.0",
+    "mkdocs-material>=9.8.0",
+    "pymdown-extensions>=12.3",
+    "pymupdf>=2.0",
+]
