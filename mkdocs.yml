@@ -64,6 +64,8 @@ nav:
       - Research Reading Backlog: knowledge_base/research/reading_backlog.md
       - Revisiting Design Choices Lu 2022:
         - Revisiting Design Choices in Offline Model-Based Reinforcement Learning: knowledge_base/research/revisiting_design_choices_lu_2022/slides.md
+      - Value Learning Bottleneck Park Et Al 2024:
+        - Is Value Learning Really the Main Bottleneck in Offline RL?: knowledge_base/research/value_learning_bottleneck_park_et_al_2024/notes.md
     - Tools:
       - Overview: knowledge_base/tools/index.md
       - Hydra: knowledge_base/tools/hydra.md

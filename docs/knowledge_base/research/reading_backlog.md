@@ -57,8 +57,8 @@ flowchart TD
 
 | # | Priority Tier | Paper Key | Core Topic / Architecture | Proposed Slug | Protocol | Status |
 | :-: | :--- | :--- | :--- | :--- | :--- | :---: |
-| 1 | **Tier 1 (Core)** | [arXiv:2406.09329](https://arxiv.org/abs/2406.09329) | Value learning vs. actor extraction bottleneck | `value_learning_bottleneck_park_et_al_2024` | 60-min Deep Read | ⏳ Next Up |
-| 2 | **Tier 1 (Core)** | [arXiv:2502.02538](https://arxiv.org/abs/2502.02538) | Flow matching policy optimization (FQL) | `flow_q_learning_park_et_al_2025` | 60-min Deep Read | 📋 Queued |
+| 1 | **Tier 1 (Core)** | [arXiv:2406.09329](https://arxiv.org/abs/2406.09329) | Value learning vs. actor extraction bottleneck | `value_learning_bottleneck_park_et_al_2024` | 60-min Deep Read | ✅ Completed |
+| 2 | **Tier 1 (Core)** | [arXiv:2502.02538](https://arxiv.org/abs/2502.02538) | Flow matching policy optimization (FQL) | `flow_q_learning_park_et_al_2025` | 60-min Deep Read | ⏳ Next Up |
 | 3 | **Tier 1 (Core)** | [arXiv:2511.14759](https://arxiv.org/abs/2511.14759) | VLA learning from autonomous experience | `pi06_vla_physical_intelligence_2025` | 60-min Deep Read | 📋 Queued |
 | 4 | **Tier 1 (Core)** | [PI-2026-RLT](https://www.pi.website/download/rlt.pdf) | RL Token for online VLA bootstrapping | `rl_token_physical_intelligence_2026` | 60-min Deep Read | 📋 Queued |
 | 5 | **Tier 1 (Core)** | [arXiv:2410.20092](https://arxiv.org/abs/2410.20092) | Offline Goal-Conditioned RL benchmark suite | `ogbench_park_et_al_2025` | 60-min Deep Read | 📋 Queued |
@@ -83,12 +83,12 @@ Essential foundational papers directly challenging assumptions in offline RL val
 - **Focus Area:** Critic vs. Actor failure modes in continuous offline RL.
 - **Why It Matters:** Conventional offline RL literature blames value divergence (extrapolation error on out-of-distribution actions) as the primary bottleneck. This paper investigates whether critic estimation is actually accurate enough, revealing that policy extraction (optimizing continuous actions against an imperfect Q-function) is often the actual performance choke point. Directly informs algorithm design in `src/olp/agents/`.
 - **Progress Tracking:**
-    - [ ] Stage 0: Staging workspace initialized
-    - [ ] Stage 1: Triage & Visual Anchor (Abstract, Intro, Fig 1)
-    - [ ] Stage 2: Methodology & Theoretical Formulation
-    - [ ] Stage 3: Empirical Interrogation & Ablations
-    - [ ] Stage 4: Related Work & Transferable Lecture
-    - [ ] Stage 5: MkDocs Synthesis subpage generated
+    - [x] Stage 0: Staging workspace initialized
+    - [x] Stage 1: Triage & Visual Anchor (Abstract, Intro, Fig 1)
+    - [x] Stage 2: Methodology & Theoretical Formulation
+    - [x] Stage 3: Empirical Interrogation & Ablations
+    - [x] Stage 4: Related Work & Transferable Lecture
+    - [x] Stage 5: MkDocs Synthesis subpage generated
 
 ### 2. Flow Q-Learning (FQL)
 - **Citation:** Park, Li, & Levine (2025)
