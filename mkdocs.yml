@@ -59,6 +59,8 @@ nav:
       - Overview: knowledge_base/research/index.md
       - Bcq Fujimoto Et Al 2018:
         - Off-Policy Deep Reinforcement Learning without Exploration: knowledge_base/research/bcq_fujimoto_et_al_2018/notes.md
+      - Flow Q Learning Park Et Al 2025:
+        - Flow Q-Learning: knowledge_base/research/flow_q_learning_park_et_al_2025/notes.md
       - Offline Rl Survey Prudencio Et Al 2024:
         - A Survey on Offline Reinforcement Learning: knowledge_base/research/offline_rl_survey_prudencio_et_al_2024/slides.md
       - Research Reading Backlog: knowledge_base/research/reading_backlog.md

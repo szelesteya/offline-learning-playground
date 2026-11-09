@@ -15,6 +15,7 @@ Collection of research papers, reading notes, presentations, and experiment scri
 - [Lu et al. (2022): Revisiting Design Choices in Offline Model-Based Reinforcement Learning](revisiting_design_choices_lu_2022/slides.md)
 - [Fujimoto et al. (2019): Off-Policy Deep Reinforcement Learning without Exploration (BCQ)](bcq_fujimoto_et_al_2018/notes.md)
 - [Park et al. (2024): Is Value Learning Really the Main Bottleneck in Offline RL?](value_learning_bottleneck_park_et_al_2024/notes.md)
+- [Park et al. (2025): Flow Q-Learning](flow_q_learning_park_et_al_2025/notes.md)
 
 ---
 
