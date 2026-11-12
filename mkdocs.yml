@@ -57,17 +57,20 @@ nav:
     - Overview: knowledge_base/index.md
     - Research:
       - Overview: knowledge_base/research/index.md
-      - Bcq Fujimoto Et Al 2018:
-        - Off-Policy Deep Reinforcement Learning without Exploration: knowledge_base/research/bcq_fujimoto_et_al_2018/notes.md
-      - Flow Q Learning Park Et Al 2025:
-        - Flow Q-Learning: knowledge_base/research/flow_q_learning_park_et_al_2025/notes.md
-      - Offline Rl Survey Prudencio Et Al 2024:
-        - A Survey on Offline Reinforcement Learning: knowledge_base/research/offline_rl_survey_prudencio_et_al_2024/slides.md
+      - Core Foundations:
+        - Bcq Fujimoto Et Al 2018:
+          - Off-Policy Deep Reinforcement Learning without Exploration: knowledge_base/research/core_foundations/bcq_fujimoto_et_al_2018/notes.md
+        - Flow Q Learning Park Et Al 2025:
+          - Flow Q-Learning: knowledge_base/research/core_foundations/flow_q_learning_park_et_al_2025/notes.md
+        - Offline Rl Survey Prudencio Et Al 2024:
+          - A Survey on Offline Reinforcement Learning: knowledge_base/research/core_foundations/offline_rl_survey_prudencio_et_al_2024/slides.md
+        - Pi06 Vla Physical Intelligence 2025:
+          - "π*₀.₆: A VLA That Learns From Experience (RECAP)": knowledge_base/research/core_foundations/pi06_vla_physical_intelligence_2025/notes.md
+        - Revisiting Design Choices Lu 2022:
+          - Revisiting Design Choices in Offline Model-Based Reinforcement Learning: knowledge_base/research/core_foundations/revisiting_design_choices_lu_2022/slides.md
+        - Value Learning Bottleneck Park Et Al 2024:
+          - Is Value Learning Really the Main Bottleneck in Offline RL?: knowledge_base/research/core_foundations/value_learning_bottleneck_park_et_al_2024/notes.md
       - Research Reading Backlog: knowledge_base/research/reading_backlog.md
-      - Revisiting Design Choices Lu 2022:
-        - Revisiting Design Choices in Offline Model-Based Reinforcement Learning: knowledge_base/research/revisiting_design_choices_lu_2022/slides.md
-      - Value Learning Bottleneck Park Et Al 2024:
-        - Is Value Learning Really the Main Bottleneck in Offline RL?: knowledge_base/research/value_learning_bottleneck_park_et_al_2024/notes.md
     - Tools:
       - Overview: knowledge_base/tools/index.md
       - Hydra: knowledge_base/tools/hydra.md

@@ -11,11 +11,12 @@ Collection of research papers, reading notes, presentations, and experiment scri
 
 ## Completed Notes & Presentations
 
-- [Prudencio et al. (2024): A Survey on Offline Reinforcement Learning](offline_rl_survey_prudencio_et_al_2024/slides.md)
-- [Lu et al. (2022): Revisiting Design Choices in Offline Model-Based Reinforcement Learning](revisiting_design_choices_lu_2022/slides.md)
-- [Fujimoto et al. (2019): Off-Policy Deep Reinforcement Learning without Exploration (BCQ)](bcq_fujimoto_et_al_2018/notes.md)
-- [Park et al. (2024): Is Value Learning Really the Main Bottleneck in Offline RL?](value_learning_bottleneck_park_et_al_2024/notes.md)
-- [Park et al. (2025): Flow Q-Learning](flow_q_learning_park_et_al_2025/notes.md)
+- [Prudencio et al. (2024): A Survey on Offline Reinforcement Learning](core_foundations/offline_rl_survey_prudencio_et_al_2024/slides.md)
+- [Lu et al. (2022): Revisiting Design Choices in Offline Model-Based Reinforcement Learning](core_foundations/revisiting_design_choices_lu_2022/slides.md)
+- [Fujimoto et al. (2019): Off-Policy Deep Reinforcement Learning without Exploration (BCQ)](core_foundations/bcq_fujimoto_et_al_2018/notes.md)
+- [Park et al. (2024): Is Value Learning Really the Main Bottleneck in Offline RL?](core_foundations/value_learning_bottleneck_park_et_al_2024/notes.md)
+- [Park et al. (2025): Flow Q-Learning](core_foundations/flow_q_learning_park_et_al_2025/notes.md)
+- [Physical Intelligence (2025): π*₀.₆ — A VLA That Learns From Experience (RECAP)](core_foundations/pi06_vla_physical_intelligence_2025/notes.md)
 
 ---
 

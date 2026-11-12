@@ -59,8 +59,8 @@ flowchart TD
 | :-: | :--- | :--- | :--- | :--- | :--- | :---: |
 | 1 | **Tier 1 (Core)** | [arXiv:2406.09329](https://arxiv.org/abs/2406.09329) | Value learning vs. actor extraction bottleneck | `value_learning_bottleneck_park_et_al_2024` | 60-min Deep Read | ✅ Completed |
 | 2 | **Tier 1 (Core)** | [arXiv:2502.02538](https://arxiv.org/abs/2502.02538) | Flow matching policy optimization (FQL) | `flow_q_learning_park_et_al_2025` | 60-min Deep Read | ✅ Completed |
-| 3 | **Tier 1 (Core)** | [arXiv:2511.14759](https://arxiv.org/abs/2511.14759) | VLA learning from autonomous experience | `pi06_vla_physical_intelligence_2025` | 60-min Deep Read | ⏳ Next Up |
-| 4 | **Tier 1 (Core)** | [PI-2026-RLT](https://www.pi.website/download/rlt.pdf) | RL Token for online VLA bootstrapping | `rl_token_physical_intelligence_2026` | 60-min Deep Read | 📋 Queued |
+| 3 | **Tier 1 (Core)** | [arXiv:2511.14759](https://arxiv.org/abs/2511.14759) | VLA learning from autonomous experience | `pi06_vla_physical_intelligence_2025` | 60-min Deep Read | ✅ Completed |
+| 4 | **Tier 1 (Core)** | [PI-2026-RLT](https://www.pi.website/download/rlt.pdf) | RL Token for online VLA bootstrapping | `rl_token_physical_intelligence_2026` | 60-min Deep Read | ⏳ Next Up |
 | 5 | **Tier 1 (Core)** | [arXiv:2410.20092](https://arxiv.org/abs/2410.20092) | Offline Goal-Conditioned RL benchmark suite | `ogbench_park_et_al_2025` | 60-min Deep Read | 📋 Queued |
 | 6 | **Tier 2 (Thesis)** | [arXiv:2603.08519](https://arxiv.org/abs/2603.08519) | Predictive latent world models for VLA manipulation | `atomvla_sun_et_al_2026` | 60-min Deep Read | 📋 Queued |
 | 7 | **Tier 2 (Thesis)** | [arXiv:2410.21845](https://arxiv.org/abs/2410.21845) | Human-in-the-loop sample-efficient robot RL | `hil_serl_luo_et_al_2024` | 60-min Deep Read | 📋 Queued |
@@ -107,16 +107,16 @@ Essential foundational papers directly challenging assumptions in offline RL val
 ### 3. π0.6: A VLA That Learns From Experience (RECAP)
 - **Citation:** Physical Intelligence (2025)
 - **Source:** [arXiv:2511.14759](https://arxiv.org/abs/2511.14759)
-- **Target Slug:** `docs/knowledge_base/research/pi06_vla_physical_intelligence_2025/`
+- **Target Slug:** `docs/knowledge_base/research/core_foundations/pi06_vla_physical_intelligence_2025/`
 - **Focus Area:** Vision-Language-Action (VLA) scaling with autonomous trial-and-error.
 - **Why It Matters:** Details Physical Intelligence's breakthrough in scaling generalist robotic models beyond imitation learning. Introduces experience collection, reward labeling, and offline/online reinforcement learning protocols that allow a foundation policy to recover from failures and improve autonomously on real physical hardware.
 - **Progress Tracking:**
     - [x] Stage 0: Staging workspace initialized
-    - [ ] Stage 1: Triage & Visual Anchor
-    - [ ] Stage 2: Architecture & Training Recipe
-    - [ ] Stage 3: Empirical Evaluation & Real Robot Results
-    - [ ] Stage 4: Related Work & Transferable Lecture
-    - [ ] Stage 5: MkDocs Synthesis subpage generated
+    - [x] Stage 1: Triage & Visual Anchor
+    - [x] Stage 2: Architecture & Training Recipe
+    - [x] Stage 3: Empirical Evaluation & Real Robot Results
+    - [x] Stage 4: Related Work & Transferable Lecture
+    - [x] Stage 5: MkDocs Synthesis subpage generated
 
 ### 4. RL Token: Bootstrapping Online RL with Vision-Language-Action Models
 - **Citation:** Physical Intelligence (2026)
